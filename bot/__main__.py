@@ -32,7 +32,7 @@ async def start(event):
         buttons=[
             [
                 Button.url("SOURCE CODE", url="github.com/Kaif-00z/"),
-                Button.url("DEVELOPER", url="t.me/kaif-00z"),
+                Button.url("DEVELOPER", url="t.me/kaif_00z"),
             ],
         ],
     )
