@@ -63,7 +63,6 @@ async def forever_check():
         yt_link = feed.entries[0].yt_videoid
         if yt_link not in MEMORY:
             await proper_info_msg(bot, int(OWNER), yt_link)
-            MEMORY.append(yt_link)
         await asyncio.sleep(0.5)
 
 
