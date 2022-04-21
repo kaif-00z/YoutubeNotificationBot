@@ -1,0 +1,35 @@
+{
+    "name": "Youtube Notification Bot",
+    "description": "A Normal Telegram Bot Which Notify You When Your Selected Content Creators Post A Video.",
+    "logo": "",
+    "keywords": ["Telegram","python", "youtube","Notification"],
+    "repository": "https://github.com/kaif-00z/YoutubeNotificationBot",
+    "success_url": "https://t.me/BotzCenter",
+    "stack": "container",
+    "env": {
+        "APP_ID": {
+            "description": "You api id, from my.telegram.org or @apiScrapperRoBot.",
+            "value": ""
+        },
+        "API_HASH": {
+            "description": "You api hash, from my.telegram.org or @apiScrapperRoBot.",
+            "value": ""
+        },
+        "BOT_TOKEN": {
+            "description": "Make a bot from @BotFather, and enter it's api token here.",
+            "value": ""
+        },
+        "OWNER": {
+            "description": "Get ur Id Of Telegram or telegram Channel or group where bot is admin nd Paste Here.",
+            "value": ""
+        },
+        "YT_CHANNEL_ID": {
+            "description": "Get Id of a youtube channel [Multi Channel Supported, with a space.",
+            "value": ""
+        },
+        "YT_API_KEY": {
+            "description": "Put Api key  [youtube data v3].",
+            "value": ""
+        },
+    }
+}

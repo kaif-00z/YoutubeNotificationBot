@@ -1,0 +1,5 @@
+apscheduler
+telethon
+feedparser
+google-api-python-client
+python-decouple
