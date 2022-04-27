@@ -16,7 +16,9 @@
 ## Variables
 `APP_ID` `API_HASH` `BOT_TOKEN`
 
-`OWNER` : put id of Channel or user where u want tl get notified.
+`OWNER` : put id of ur telegram account.
+
+`CHAT`  :  put id of Channel or user where u want to get notified.
 
 `YT_CHANNEL_ID` : Put Id Of youtube channels with a space between it
 

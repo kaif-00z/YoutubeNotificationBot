@@ -20,7 +20,11 @@
             "value": ""
         },
         "OWNER": {
-            "description": "Get ur Id Of Telegram or telegram Channel or group where bot is admin nd Paste Here.",
+            "description": "Get ur Id Of Telegram nd Paste Here.",
+            "value": ""
+        },
+        "CHAT": {
+            "description": "Get ur Id of Telegram or telegram Channel or group where bot is admin nd Paste Here.",
             "value": ""
         },
         "YT_CHANNEL_ID": {

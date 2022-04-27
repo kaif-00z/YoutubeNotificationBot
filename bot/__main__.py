@@ -40,6 +40,8 @@ async def start(event):
 
 @bot.on(events.NewMessage(incoming=True, pattern="/subsinfo"))
 async def sub_info(event):
+    if str(events.sender_id) not in OWNER:
+        return
     text = "**List Of Subscribed Channel**\n\n"
     for id in CH_IDS:
         info = await channel_info(id)
@@ -62,7 +64,7 @@ async def forever_check():
         feed = feedparser.parse(feed_url)
         yt_link = feed.entries[0].yt_videoid
         if yt_link not in MEMORY:
-            await proper_info_msg(bot, int(OWNER), yt_link)
+            await proper_info_msg(bot, CHAT, yt_link)
             MEMORY.append(yt_link)
         await asyncio.sleep(0.5)
 

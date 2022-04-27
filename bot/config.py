@@ -22,6 +22,7 @@ try:
     BOT_TOKEN = config("BOT_TOKEN")
     YT_API_KEY = config("YT_API_KEY")
     OWNER = config("OWNER")
+    CHAT = config("CHAT", cast=int)
     CH_ID = config("YT_CHANNEL_ID")
 except Exception as e:
     LOGS.info("Environment vars Missing")
