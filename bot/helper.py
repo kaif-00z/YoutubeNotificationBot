@@ -70,5 +70,4 @@ async def proper_info_msg(client, to_id, yt_id):
         caption=text,
         buttons=[[Button.url("Watch", url=f"https://www.youtube.com/watch?v={yt_id}")]],
     )
-    MEMORY.append(yt_link)
     os.remove(f"{thumb.split('/')[-2]}.jpg")
