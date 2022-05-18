@@ -15,6 +15,9 @@
 
 
 from decouple import config
+from dotenv import load_dotenv
+
+load_dotenv()
 
 try:
     APP_ID = config("APP_ID", default=6, cast=int)
@@ -24,6 +27,8 @@ try:
     OWNER = config("OWNER")
     CHAT = config("CHAT", cast=int)
     CH_ID = config("YT_CHANNEL_ID")
+    DELAY_TIME = config("DELAY_TIME", default=5, cast=int)
+    DOWNLOAD_VIDEO = config("DOWNLOAD_VIDEO", default=False, cast=bool)
 except Exception as e:
     LOGS.info("Environment vars Missing")
     LOGS.info("something went wrong")
