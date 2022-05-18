@@ -78,7 +78,7 @@ async def proper_info_msg(client, to_id, yt_id):
         dur = "♾"
     else:
         text += f"**{channel_name} Just Uploaded A Video**\n\n"
-        dl_yt = yt_dl(yt_id, "135") #480p
+        dl_yt = yt_dl(yt_id, "135")  # 480p
     text += f"```Title - {video_title}\n\n"
     text += f"Description - {desc}\n"
     text += f"Duration - {dur}\n"
