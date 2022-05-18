@@ -22,6 +22,7 @@ from logging import INFO, basicConfig, getLogger
 import feedparser
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from googleapiclient.discovery import build
+from yt_dlp import YoutubeDL
 from telethon import Button, TelegramClient, events
 
 from .config import *
