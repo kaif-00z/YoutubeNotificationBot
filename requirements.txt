@@ -1,5 +1,8 @@
 apscheduler
-telethon
+https://github.com/New-dev0/Telethon/archive/PlayTime.zip
+yt-dlp
+python-dotenv
 feedparser
 google-api-python-client
 python-decouple
+
