@@ -41,7 +41,7 @@ def yt_dl(yt_link, quality=None):
         "key": "FFmpegMetadata",
         "prefer_ffmpeg": True,
         "geo_bypass": True,
-        "outtmpl": "%(id)s.mkv,
+        "outtmpl": "%(id)s.mkv",
         "logtostderr": True,
         "postprocessors": [{"key": "FFmpegMetadata"}],
     }
