@@ -34,14 +34,31 @@ def video_info(_id):
     return YT.videos().list(part="snippet,contentDetails,statistics", id=_id).execute()
 
 
+def yt_dl(yt_link, quality=None):
+    opts = {
+        "format": quality,
+        "addmetadata": True,
+        "key": "FFmpegMetadata",
+        "prefer_ffmpeg": True,
+        "geo_bypass": True,
+        "outtmpl": "%(id)s.mkv,
+        "logtostderr": True,
+        "postprocessors": [{"key": "FFmpegMetadata"}],
+    }
+    try:
+        return YoutubeDL(opts).extract_info(url=url, download=True)
+    except Exception as er:
+        LOGS.info(er)
+
+
 async def proper_info_msg(client, to_id, yt_id):
     info = video_info(yt_id)["items"][0]
     channel_name = info["snippet"]["channelTitle"]
     video_title = info["snippet"]["title"]
     try:
         desc = info["snippet"]["description"]
-        if len(desc) > 500:
-            desc = desc[:300] + "..."
+        if len(desc) > 300:
+            desc = desc[:200] + "..."
     except BaseException:
         desc = "Not Found!"
     pub_time = info["snippet"]["publishedAt"].replace("T", " ").replace("Z", " ")
@@ -60,7 +77,7 @@ async def proper_info_msg(client, to_id, yt_id):
         dur = "♾"
     else:
         text += f"**{channel_name} Just Uploaded A Video**\n\n"
-    text += f"```Title - {video_title}\n"
+    text += f"```Title - {video_title}\n\n"
     text += f"Description - {desc}\n"
     text += f"Duration - {dur}\n"
     text += f"Published At - {pub_time}```\n"
