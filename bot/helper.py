@@ -41,7 +41,7 @@ def yt_dl(yt_link, quality=None):
         "key": "FFmpegMetadata",
         "prefer_ffmpeg": True,
         "geo_bypass": True,
-        "outtmpl": "%(id)s.mkv",
+        "outtmpl": "%(id)s.mp4",
         "logtostderr": True,
         "postprocessors": [{"key": "FFmpegMetadata"}],
     }
@@ -52,6 +52,7 @@ def yt_dl(yt_link, quality=None):
 
 
 async def proper_info_msg(client, to_id, yt_id):
+    dl_yt = None
     info = video_info(yt_id)["items"][0]
     channel_name = info["snippet"]["channelTitle"]
     video_title = info["snippet"]["title"]
@@ -77,6 +78,7 @@ async def proper_info_msg(client, to_id, yt_id):
         dur = "♾"
     else:
         text += f"**{channel_name} Just Uploaded A Video**\n\n"
+        dl_yt = yt_dl(yt_id, "135") #480p
     text += f"```Title - {video_title}\n\n"
     text += f"Description - {desc}\n"
     text += f"Duration - {dur}\n"
