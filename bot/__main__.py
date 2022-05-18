@@ -69,7 +69,7 @@ async def forever_check():
         await asyncio.sleep(0.5)
 
 
-sch.add_job(forever_check, "interval", seconds=30)
+sch.add_job(forever_check, "interval", minutes=Var.DELAY_TIME)
 
 LOGS.info("Bot has started...")
 bot.loop.run_until_complete(save_it())
