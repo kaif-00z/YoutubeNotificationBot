@@ -16,6 +16,7 @@
 
 from decouple import config
 from dotenv import load_dotenv
+
 from . import LOGS
 
 load_dotenv()
