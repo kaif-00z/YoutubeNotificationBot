@@ -42,6 +42,6 @@
         "DOWNLOAD_VIDEO": {
             "description": "in 'True/False', if want to download video with notification so set True else False.",
             "value": "False"
-        },
+        }
     }
 }
