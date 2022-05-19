@@ -23,6 +23,7 @@ import feedparser
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from googleapiclient.discovery import build
 from telethon import Button, TelegramClient, events
+from telethon.tl.types import DocumentAttributeVideo
 from yt_dlp import YoutubeDL
 
 from .config import *
