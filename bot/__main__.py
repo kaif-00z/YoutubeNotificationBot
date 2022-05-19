@@ -39,7 +39,7 @@ async def start(event):
 
 @bot.on(events.NewMessage(incoming=True, pattern="/subsinfo"))
 async def sub_info(event):
-    if str(events.sender_id) not in OWNER:
+    if str(event.sender_id) not in OWNER:
         return
     text = "**List Of Subscribed Channel**\n\n"
     for id in CH_IDS:
