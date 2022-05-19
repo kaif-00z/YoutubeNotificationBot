@@ -42,11 +42,11 @@ def yt_dl(yt_link, quality=None):
         "prefer_ffmpeg": True,
         "geo_bypass": True,
         "outtmpl": "%(id)s.mp4",
-        "logtostderr": True,
+        "logtostderr": False,
         "postprocessors": [{"key": "FFmpegMetadata"}],
     }
     try:
-        return YoutubeDL(opts).extract_info(url=url, download=True)
+        return YoutubeDL(opts).extract_info(url=yt_link, download=True)
     except Exception as er:
         LOGS.info(er)
 
