@@ -49,10 +49,11 @@ def yt_dl(yt_link, quality=None):
         return YoutubeDL(opts).extract_info(url=yt_link, download=True)
     except Exception as er:
         LOGS.info(er)
+        return None
 
 
 async def proper_info_msg(client, to_id, yt_id):
-    dl_yt = None
+    dl_yt = ""
     info = video_info(yt_id)["items"][0]
     channel_name = info["snippet"]["channelTitle"]
     video_title = info["snippet"]["title"]
@@ -78,15 +79,34 @@ async def proper_info_msg(client, to_id, yt_id):
         dur = "♾"
     else:
         text += f"**{channel_name} Just Uploaded A Video**\n\n"
-        dl_yt = yt_dl(yt_id, "135")  # 480p
+        if DOWNLOAD_VIDEO:
+            dl_yt = yt_dl(yt_id, "135")  # 480p
     text += f"```Title - {video_title}\n\n"
     text += f"Description - {desc}\n"
     text += f"Duration - {dur}\n"
     text += f"Published At - {pub_time}```\n"
-    await client.send_file(
-        to_id,
-        file=f"{thumb.split('/')[-2]}.jpg",
-        caption=text,
-        buttons=[[Button.url("Watch", url=f"https://www.youtube.com/watch?v={yt_id}")]],
-    )
+    if dl_yt:
+        await client.send_file(
+            to_id,
+            file=f"{yt_id}.mp4",
+            caption=text,
+            attributes=[
+                DocumentAttributeVideo(
+                    duration=dl_yt["duration"],
+                    w=dl_yt["width"],
+                    h=dl_yt["height"],
+                    supports_streaming=True,
+                )
+            ],
+            thumb=f"{thumb.split('/')[-2]}.jpg",
+            buttons=[[Button.url("Watch", url=f"https://www.youtube.com/watch?v={yt_id}")]],
+        )
+    else:
+        await client.send_file(
+            to_id,
+            file=f"{thumb.split('/')[-2]}.jpg",
+            caption=text,
+            buttons=[[Button.url("Watch", url=f"https://www.youtube.com/watch?v={yt_id}")]],
+        )
     os.remove(f"{thumb.split('/')[-2]}.jpg")
+    os.remove(f"{yt_id}.mp4")
