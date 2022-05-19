@@ -35,5 +35,13 @@
             "description": "Put Api key  [youtube data v3].",
             "value": ""
         },
+        "DELAY_TIME": {
+            "description": "Always In Minutes, check in every 'x' minutes that new video is posted or not.",
+            "value": "5"
+        },
+        "DOWNLOAD_VIDEO": {
+            "description": "in 'True/False', if want to download video with notification so set True else False.",
+            "value": "False"
+        },
     }
 }
