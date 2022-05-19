@@ -15,6 +15,7 @@
 
 
 from . import *
+from .FastTelethon import upload_file
 
 
 def dur_parser(_time):
@@ -86,9 +87,15 @@ async def proper_info_msg(client, to_id, yt_id):
     text += f"Duration - {dur}\n"
     text += f"Published At - {pub_time}```\n"
     if dl_yt:
+        with open(f"{yt_id}.mp4", "rb") as f:
+            ok = await upload_file(
+                client=client,
+                file=f,
+                name=f"{yt_id}.mp4",
+            )
         await client.send_file(
             to_id,
-            file=f"{yt_id}.mp4",
+            file=ok,
             caption=text,
             attributes=[
                 DocumentAttributeVideo(
