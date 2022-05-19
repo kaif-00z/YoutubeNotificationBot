@@ -99,14 +99,18 @@ async def proper_info_msg(client, to_id, yt_id):
                 )
             ],
             thumb=f"{thumb.split('/')[-2]}.jpg",
-            buttons=[[Button.url("Watch", url=f"https://www.youtube.com/watch?v={yt_id}")]],
+            buttons=[
+                [Button.url("Watch", url=f"https://www.youtube.com/watch?v={yt_id}")]
+            ],
         )
     else:
         await client.send_file(
             to_id,
             file=f"{thumb.split('/')[-2]}.jpg",
             caption=text,
-            buttons=[[Button.url("Watch", url=f"https://www.youtube.com/watch?v={yt_id}")]],
+            buttons=[
+                [Button.url("Watch", url=f"https://www.youtube.com/watch?v={yt_id}")]
+            ],
         )
     os.remove(f"{thumb.split('/')[-2]}.jpg")
     os.remove(f"{yt_id}.mp4")
