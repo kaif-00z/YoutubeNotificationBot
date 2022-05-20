@@ -14,8 +14,8 @@
 # https://github.com/kaif-00z/YoutubeNotificationBot/blob/main/License> .
 
 
-from . import *
-from . import YT
+
+from .config import *
 from .FastTelethon import upload_file
 
 
