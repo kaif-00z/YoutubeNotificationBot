@@ -122,5 +122,5 @@ async def proper_info_msg(client, to_id, yt_id):
     try:
         os.remove(f"{thumb.split('/')[-2]}.jpg")
         os.remove(f"{yt_id}.mp4")
-    except:
+    except BaseException:
         pass
