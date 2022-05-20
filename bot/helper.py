@@ -119,5 +119,8 @@ async def proper_info_msg(client, to_id, yt_id):
                 [Button.url("Watch", url=f"https://www.youtube.com/watch?v={yt_id}")]
             ],
         )
-    os.remove(f"{thumb.split('/')[-2]}.jpg")
-    os.remove(f"{yt_id}.mp4")
+    try:
+        os.remove(f"{thumb.split('/')[-2]}.jpg")
+        os.remove(f"{yt_id}.mp4")
+    except:
+        pass
