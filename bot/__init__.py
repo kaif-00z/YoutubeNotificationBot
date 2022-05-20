@@ -26,7 +26,7 @@ from telethon import Button, TelegramClient, events
 from telethon.tl.types import DocumentAttributeVideo
 from yt_dlp import YoutubeDL
 
-from .config import *
+from .helper import *
 
 sch = AsyncIOScheduler()
 MEMORY = []
