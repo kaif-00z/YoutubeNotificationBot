@@ -20,15 +20,15 @@ from dotenv import load_dotenv
 load_dotenv()
 
 try:
-    APP_ID = config("APP_ID", default=6, cast=int)
-    API_HASH = config("API_HASH", default="eb06d4abfb49dc3eeb1aeb98ae0f581e")
+    APP_ID = config("APP_ID", cast=int)
+    API_HASH = config("API_HASH")
     BOT_TOKEN = config("BOT_TOKEN")
     YT_API_KEY = config("YT_API_KEY")
     OWNER = config("OWNER")
     CHAT = config("CHAT", cast=int)
     CH_ID = config("YT_CHANNEL_ID")
-    DELAY_TIME = config("DELAY_TIME", default=5, cast=int)
-    DOWNLOAD_VIDEO = config("DOWNLOAD_VIDEO", default=False, cast=bool)
+    DELAY_TIME = config("DELAY_TIME", cast=int)
+    DOWNLOAD_VIDEO = config("DOWNLOAD_VIDEO", cast=bool)
 except Exception as e:
     LOGS.info("Environment vars Missing")
     LOGS.info("something went wrong")
