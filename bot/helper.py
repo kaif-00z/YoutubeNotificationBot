@@ -15,6 +15,7 @@
 
 
 from . import *
+from . import YT
 from .FastTelethon import upload_file
 
 
