@@ -15,6 +15,7 @@
 
 
 from . import *
+from .helper import *
 
 LOGS.info("• Starting Bot... •")
 
